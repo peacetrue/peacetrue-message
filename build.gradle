@@ -8,9 +8,9 @@ plugins {
 
 allprojects { project ->
 
-    group "com.github.peacetrue.template"
-    version "1.0-SNAPSHOT"
-    description "模型类库模板"
+    group "com.github.peacetrue.message"
+    version "1.0.0-SNAPSHOT"
+    description "消息模块"
 
     apply plugin: "java"
     apply plugin: "java-library"

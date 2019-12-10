@@ -10,7 +10,7 @@ include::master@overview::page$standard/api/attributes.adoc[]
 
 ==== 地址
 
-POST /demos
+POST /messages
 
 ==== 参数
 
@@ -48,7 +48,7 @@ POST /demos
 
 ==== 请求地址
 
-GET /demos
+GET /messages
 
 ==== 参数
 
@@ -135,7 +135,7 @@ GET /demos
 
 ==== 地址
 
-GET /demos
+GET /messages
 
 ==== 参数
 
@@ -166,7 +166,7 @@ GET /demos
 
 ==== 地址
 
-PUT /demos
+PUT /messages
 
 ==== 参数
 
@@ -212,7 +212,7 @@ PUT /demos
 
 ==== 地址
 
-DELETE /demos
+DELETE /messages
 
 ==== 参数
 

@@ -18,34 +18,34 @@ image::structure.png[]
 * com
 ** github
 *** peacetrue
-**** demo
+**** message
 ***** controller：控制器
 ***** service：服务接口和实现
 ***** type：数据类型
 
 * com.github.peacetrue: 根据实际公司或组织名变化
-* demo：根据实际模块名变化
+* message：根据实际模块名变化
 
 == 命名规范
-peacetrue-demo-controller::
-* Properties：ControllerDemoProperties
-* AutoConfiguration：ControllerDemoAutoConfiguration
-* Controller：DemoController
-* application.properties：application-demo-controller.properties
-peacetrue-demo-service-api::
-* Service：DemoService
-* Add：DemoAdd
-* Query：DemoQuery
-* Get：DemoGet
-* Modify：DemoModify
-* Delete：DemoDelete
-* VO：DemoVO
-peacetrue-demo-service-mybatis::
-* Properties：ServiceDemoProperties
-* AutoConfiguration：ServiceDemoAutoConfiguration
-* ServiceImpl：DemoServiceImpl
-* application.properties：application-demo-service.properties
-peacetrue-demo-type::
-* Properties：TypeDemoProperties
-* AutoConfiguration：TypeDemoAutoConfiguration
-* application.properties：application-demo-type.properties
+peacetrue-message-controller::
+* Properties：ControllerMessageProperties
+* AutoConfiguration：ControllerMessageAutoConfiguration
+* Controller：MessageController
+* application.properties：application-message-controller.properties
+peacetrue-message-service-api::
+* Service：MessageService
+* Add：MessageAdd
+* Query：MessageQuery
+* Get：MessageGet
+* Modify：MessageModify
+* Delete：MessageDelete
+* VO：MessageVO
+peacetrue-message-service-mybatis::
+* Properties：ServiceMessageProperties
+* AutoConfiguration：ServiceMessageAutoConfiguration
+* ServiceImpl：MessageServiceImpl
+* application.properties：application-message-service.properties
+peacetrue-message-type::
+* Properties：TypeMessageProperties
+* AutoConfiguration：TypeMessageAutoConfiguration
+* application.properties：application-message-type.properties
