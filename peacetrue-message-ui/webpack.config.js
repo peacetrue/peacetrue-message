@@ -8,7 +8,7 @@ let options = args2options(process.argv, '-pt:');
 let config = {
     mode: 'development',
     entry: {
-        'MessageList': './src/message_list.js',
+        'MessageList': './src/message-list.js',
     },
     devtool: 'source-map',
     plugins: [

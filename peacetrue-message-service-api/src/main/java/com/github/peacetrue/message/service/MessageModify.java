@@ -29,6 +29,8 @@ public class MessageModify<Id, OperatorId> extends OperatorCapableImpl<OperatorI
     private String receiverTypeCode;
     @Size(max = 255)
     private String receiverId;
+    @Size(max = 255)
+    private String remark;
     @Max(Integer.MAX_VALUE)
     private Integer receivedCount;
 

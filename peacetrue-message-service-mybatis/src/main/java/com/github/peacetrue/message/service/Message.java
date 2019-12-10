@@ -23,6 +23,7 @@ public class Message<Id, OperatorId> implements Serializable {
     private String receiverTypeCode;
     private String receiverId;
     private Integer receivedCount;
+    private String remark;
     private OperatorId creatorId;
     private Date createdTime;
 

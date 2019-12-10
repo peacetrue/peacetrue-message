@@ -7,6 +7,7 @@ CREATE TABLE message
     receiver_type_code VARCHAR(255)  NOT NULL COMMENT '接收者类型编码：all->所有用户、one->单个用户',
     receiver_id        VARCHAR(255) COMMENT '接收者标识',
     received_count     INTEGER       NOT NULL DEFAULT 0 COMMENT '已接收数目',
+    remark             VARCHAR(255) COMMENT '备注',
     created_time       DATETIME      NOT NULL COMMENT '创建时间',
     creator_id         VARCHAR(255)  NOT NULL COMMENT '创建者标识'
 );

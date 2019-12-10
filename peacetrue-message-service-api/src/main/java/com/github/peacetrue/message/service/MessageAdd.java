@@ -30,6 +30,8 @@ public class MessageAdd<OperatorId> extends OperatorCapableImpl<OperatorId> {
     private String receiverTypeCode;
     @Size(max = 255)
     private String receiverId;
+    @Size(max = 255)
+    private String remark;
     @Max(Integer.MAX_VALUE)
     private Integer receivedCount;
 

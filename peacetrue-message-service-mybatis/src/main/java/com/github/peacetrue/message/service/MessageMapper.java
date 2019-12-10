@@ -56,6 +56,7 @@ public interface MessageMapper {
             @Result(column = "receiver_type_code", property = "receiverTypeCode", jdbcType = JdbcType.VARCHAR),
             @Result(column = "receiver_id", property = "receiverId", jdbcType = JdbcType.VARCHAR),
             @Result(column = "received_count", property = "receivedCount", jdbcType = JdbcType.INTEGER),
+            @Result(column = "remark", property = "remark", jdbcType = JdbcType.VARCHAR),
             @Result(column = "creator_id", property = "creatorId"),
             @Result(column = "created_time", property = "createdTime", jdbcType = JdbcType.TIMESTAMP),
     })
@@ -102,6 +103,7 @@ public interface MessageMapper {
                 .map(MessageDynamicSqlSupport.receiverTypeCode).toProperty("receiverTypeCode")
                 .map(MessageDynamicSqlSupport.receiverId).toProperty("receiverId")
                 .map(MessageDynamicSqlSupport.receivedCount).toProperty("receivedCount")
+                .map(MessageDynamicSqlSupport.remark).toProperty("remark")
                 .map(MessageDynamicSqlSupport.creatorId).toProperty("creatorId")
                 .map(MessageDynamicSqlSupport.createdTime).toProperty("createdTime")
                 .build()
@@ -118,6 +120,7 @@ public interface MessageMapper {
                 .map(MessageDynamicSqlSupport.receiverTypeCode).toPropertyWhenPresent("receiverTypeCode", record::getReceiverTypeCode)
                 .map(MessageDynamicSqlSupport.receiverId).toPropertyWhenPresent("receiverId", record::getReceiverId)
                 .map(MessageDynamicSqlSupport.receivedCount).toPropertyWhenPresent("receivedCount", record::getReceivedCount)
+                .map(MessageDynamicSqlSupport.remark).toPropertyWhenPresent("remark", record::getRemark)
                 .map((SqlColumn<Object>) MessageDynamicSqlSupport.creatorId).toPropertyWhenPresent("creatorId", record::getCreatorId)
                 .map(MessageDynamicSqlSupport.createdTime).toPropertyWhenPresent("createdTime", record::getCreatedTime)
                 .build()
@@ -154,6 +157,7 @@ public interface MessageMapper {
                 .set(MessageDynamicSqlSupport.receiverTypeCode).equalTo(record::getReceiverTypeCode)
                 .set(MessageDynamicSqlSupport.receiverId).equalTo(record::getReceiverId)
                 .set(MessageDynamicSqlSupport.receivedCount).equalTo(record::getReceivedCount)
+                .set(MessageDynamicSqlSupport.remark).equalTo(record::getRemark)
                 .set((SqlColumn<Object>) MessageDynamicSqlSupport.creatorId).equalTo(record::getCreatorId)
                 .set(MessageDynamicSqlSupport.createdTime).equalTo(record::getCreatedTime);
     }
@@ -167,6 +171,7 @@ public interface MessageMapper {
                 .set(MessageDynamicSqlSupport.receiverTypeCode).equalToWhenPresent(record::getReceiverTypeCode)
                 .set(MessageDynamicSqlSupport.receiverId).equalToWhenPresent(record::getReceiverId)
                 .set(MessageDynamicSqlSupport.receivedCount).equalToWhenPresent(record::getReceivedCount)
+                .set(MessageDynamicSqlSupport.remark).equalToWhenPresent(record::getRemark)
                 .set((SqlColumn<Object>) MessageDynamicSqlSupport.creatorId).equalToWhenPresent(record::getCreatorId)
                 .set(MessageDynamicSqlSupport.createdTime).equalToWhenPresent(record::getCreatedTime)
                 ;
@@ -180,6 +185,7 @@ public interface MessageMapper {
                 .set(MessageDynamicSqlSupport.receiverTypeCode).equalTo(record::getReceiverTypeCode)
                 .set(MessageDynamicSqlSupport.receiverId).equalTo(record::getReceiverId)
                 .set(MessageDynamicSqlSupport.receivedCount).equalTo(record::getReceivedCount)
+                .set(MessageDynamicSqlSupport.remark).equalTo(record::getRemark)
                 .set((SqlColumn<Object>) MessageDynamicSqlSupport.creatorId).equalTo(record::getCreatorId)
                 .set(MessageDynamicSqlSupport.createdTime).equalTo(record::getCreatedTime)
                 .where((SqlColumn<Object>) MessageDynamicSqlSupport.id, isEqualTo(record::getId))
@@ -195,6 +201,7 @@ public interface MessageMapper {
                 .set(MessageDynamicSqlSupport.receiverTypeCode).equalToWhenPresent(record::getReceiverTypeCode)
                 .set(MessageDynamicSqlSupport.receiverId).equalToWhenPresent(record::getReceiverId)
                 .set(MessageDynamicSqlSupport.receivedCount).equalToWhenPresent(record::getReceivedCount)
+                .set(MessageDynamicSqlSupport.remark).equalToWhenPresent(record::getRemark)
                 .set((SqlColumn<Object>) MessageDynamicSqlSupport.creatorId).equalToWhenPresent(record::getCreatorId)
                 .set(MessageDynamicSqlSupport.createdTime).equalToWhenPresent(record::getCreatedTime)
                 .where((SqlColumn<Object>) MessageDynamicSqlSupport.id, isEqualTo(record::getId))

@@ -24,7 +24,6 @@ public class MessageServiceImplTest {
 
     @Autowired
     private MessageService messageService;
-    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public static final MessageAdd<String> MESSAGE_ADD = new MessageAdd<>();
 
@@ -37,7 +36,6 @@ public class MessageServiceImplTest {
 
     @Test
     public void add() {
-        logger.debug("addddd");
         MessageVO<Long, String> vo = messageService.add(MESSAGE_ADD);
         Assert.assertEquals(vo, messageService.<Long, String>get(new MessageGet<>(vo.getId())));
     }
