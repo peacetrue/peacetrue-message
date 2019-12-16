@@ -23,6 +23,7 @@ public class MessageQuery implements Serializable {
     private String receiverId;
     private Integer receivedCount;
     private Range.Date createdTime;
+    private Range.Date modifiedTime;
 
 
 }

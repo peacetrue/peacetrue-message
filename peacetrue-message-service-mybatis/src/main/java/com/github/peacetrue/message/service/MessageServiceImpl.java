@@ -59,6 +59,7 @@ public class MessageServiceImpl implements MessageService {
         logger.info("分页查询信息[{}]", params);
         if (params == null) params = MessageQuery.DEFAULT;
         if (params.getCreatedTime() == null) params.setCreatedTime(new Range.Date());
+        if (params.getModifiedTime() == null) params.setCreatedTime(new Range.Date());
         if (pageable == null) pageable = new PageRequest(0, 10, new Sort(Sort.Direction.DESC, "createdTime"));
         PageHelper.startPage(pageable.getPageNumber() + 1, pageable.getPageSize());
         List<Message<Id, OperatorId>> entities = messageMapper.<Id, OperatorId>selectByExample()
@@ -67,6 +68,8 @@ public class MessageServiceImpl implements MessageService {
                 .and(MessageDynamicSqlSupport.receiverId, SqlBuilder.isEqualToWhenPresent(params.getReceiverId()))
                 .and(MessageDynamicSqlSupport.createdTime, SqlBuilder.isGreaterThanOrEqualToWhenPresent(params.getCreatedTime().getLowerBound()))
                 .and(MessageDynamicSqlSupport.createdTime, SqlBuilder.isLessThanWhenPresent(MybatisDynamicUtils.endDateValue(params.getCreatedTime().getUpperBound())))
+                .and(MessageDynamicSqlSupport.modifiedTime, SqlBuilder.isGreaterThanOrEqualToWhenPresent(params.getModifiedTime().getLowerBound()))
+                .and(MessageDynamicSqlSupport.modifiedTime, SqlBuilder.isLessThanWhenPresent(MybatisDynamicUtils.endDateValue(params.getModifiedTime().getUpperBound())))
                 .orderBy(MybatisDynamicUtils.orders(MessageDynamicSqlSupport.message, pageable.getSort()))
                 .build().execute();
         logger.debug("共取得'{}'条记录", entities.size());
