@@ -59,7 +59,7 @@ public class MessageServiceImpl implements MessageService {
         logger.info("分页查询信息[{}]", params);
         if (params == null) params = MessageQuery.DEFAULT;
         if (params.getCreatedTime() == null) params.setCreatedTime(new Range.Date());
-        if (params.getModifiedTime() == null) params.setCreatedTime(new Range.Date());
+        if (params.getModifiedTime() == null) params.setModifiedTime(new Range.Date());
         if (pageable == null) pageable = new PageRequest(0, 10, new Sort(Sort.Direction.DESC, "createdTime"));
         PageHelper.startPage(pageable.getPageNumber() + 1, pageable.getPageSize());
         List<Message<Id, OperatorId>> entities = messageMapper.<Id, OperatorId>selectByExample()
