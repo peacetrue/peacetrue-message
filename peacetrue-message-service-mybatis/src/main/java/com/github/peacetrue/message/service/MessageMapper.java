@@ -59,6 +59,8 @@ public interface MessageMapper {
             @Result(column = "remark", property = "remark", jdbcType = JdbcType.VARCHAR),
             @Result(column = "creator_id", property = "creatorId"),
             @Result(column = "created_time", property = "createdTime", jdbcType = JdbcType.TIMESTAMP),
+            @Result(column = "modifier_id", property = "modifierId"),
+            @Result(column = "modified_time", property = "modifiedTime", jdbcType = JdbcType.TIMESTAMP),
     })
     <Id, OperatorId> List<Message<Id, OperatorId>> selectMany(SelectStatementProvider selectStatement);
 
@@ -106,6 +108,8 @@ public interface MessageMapper {
                 .map(MessageDynamicSqlSupport.remark).toProperty("remark")
                 .map(MessageDynamicSqlSupport.creatorId).toProperty("creatorId")
                 .map(MessageDynamicSqlSupport.createdTime).toProperty("createdTime")
+                .map(MessageDynamicSqlSupport.modifierId).toProperty("modifierId")
+                .map(MessageDynamicSqlSupport.modifiedTime).toProperty("modifiedTime")
                 .build()
                 .render(RenderingStrategy.MYBATIS3));
     }
@@ -123,6 +127,8 @@ public interface MessageMapper {
                 .map(MessageDynamicSqlSupport.remark).toPropertyWhenPresent("remark", record::getRemark)
                 .map((SqlColumn<Object>) MessageDynamicSqlSupport.creatorId).toPropertyWhenPresent("creatorId", record::getCreatorId)
                 .map(MessageDynamicSqlSupport.createdTime).toPropertyWhenPresent("createdTime", record::getCreatedTime)
+                .map((SqlColumn<Object>) MessageDynamicSqlSupport.modifierId).toPropertyWhenPresent("modifierId", record::getModifierId)
+                .map(MessageDynamicSqlSupport.modifiedTime).toPropertyWhenPresent("modifiedTime", record::getModifiedTime)
                 .build()
                 .render(RenderingStrategy.MYBATIS3));
     }
@@ -159,7 +165,10 @@ public interface MessageMapper {
                 .set(MessageDynamicSqlSupport.receivedCount).equalTo(record::getReceivedCount)
                 .set(MessageDynamicSqlSupport.remark).equalTo(record::getRemark)
                 .set((SqlColumn<Object>) MessageDynamicSqlSupport.creatorId).equalTo(record::getCreatorId)
-                .set(MessageDynamicSqlSupport.createdTime).equalTo(record::getCreatedTime);
+                .set(MessageDynamicSqlSupport.createdTime).equalTo(record::getCreatedTime)
+                .set((SqlColumn<Object>) MessageDynamicSqlSupport.modifierId).equalTo(record::getModifierId)
+                .set(MessageDynamicSqlSupport.modifiedTime).equalTo(record::getModifiedTime)
+                ;
     }
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
@@ -174,6 +183,8 @@ public interface MessageMapper {
                 .set(MessageDynamicSqlSupport.remark).equalToWhenPresent(record::getRemark)
                 .set((SqlColumn<Object>) MessageDynamicSqlSupport.creatorId).equalToWhenPresent(record::getCreatorId)
                 .set(MessageDynamicSqlSupport.createdTime).equalToWhenPresent(record::getCreatedTime)
+                .set((SqlColumn<Object>) MessageDynamicSqlSupport.modifierId).equalToWhenPresent(record::getModifierId)
+                .set(MessageDynamicSqlSupport.modifiedTime).equalToWhenPresent(record::getModifiedTime)
                 ;
     }
 
@@ -188,6 +199,8 @@ public interface MessageMapper {
                 .set(MessageDynamicSqlSupport.remark).equalTo(record::getRemark)
                 .set((SqlColumn<Object>) MessageDynamicSqlSupport.creatorId).equalTo(record::getCreatorId)
                 .set(MessageDynamicSqlSupport.createdTime).equalTo(record::getCreatedTime)
+                .set((SqlColumn<Object>) MessageDynamicSqlSupport.modifierId).equalTo(record::getModifierId)
+                .set(MessageDynamicSqlSupport.modifiedTime).equalTo(record::getModifiedTime)
                 .where((SqlColumn<Object>) MessageDynamicSqlSupport.id, isEqualTo(record::getId))
                 .build()
                 .execute();
@@ -204,6 +217,8 @@ public interface MessageMapper {
                 .set(MessageDynamicSqlSupport.remark).equalToWhenPresent(record::getRemark)
                 .set((SqlColumn<Object>) MessageDynamicSqlSupport.creatorId).equalToWhenPresent(record::getCreatorId)
                 .set(MessageDynamicSqlSupport.createdTime).equalToWhenPresent(record::getCreatedTime)
+                .set((SqlColumn<Object>) MessageDynamicSqlSupport.modifierId).equalToWhenPresent(record::getModifierId)
+                .set(MessageDynamicSqlSupport.modifiedTime).equalToWhenPresent(record::getModifiedTime)
                 .where((SqlColumn<Object>) MessageDynamicSqlSupport.id, isEqualTo(record::getId))
                 .build()
                 .execute();

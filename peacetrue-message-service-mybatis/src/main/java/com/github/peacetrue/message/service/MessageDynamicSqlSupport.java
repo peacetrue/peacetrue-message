@@ -39,6 +39,12 @@ public final class MessageDynamicSqlSupport {
     public static final SqlColumn<Date> createdTime = message.createdTime;
 
     @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public static final SqlColumn modifierId = message.modifierId;
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
+    public static final SqlColumn<Date> modifiedTime = message.modifiedTime;
+
+    @Generated("org.mybatis.generator.api.MyBatisGenerator")
     public static final class Message extends SqlTable {
 
         public final SqlColumn id = column("id");
@@ -58,6 +64,10 @@ public final class MessageDynamicSqlSupport {
         public final SqlColumn creatorId = column("creator_id", JDBCType.VARCHAR);
 
         public final SqlColumn<Date> createdTime = column("created_time", JDBCType.TIMESTAMP);
+
+        public final SqlColumn modifierId = column("modifier_id", JDBCType.VARCHAR);
+
+        public final SqlColumn<Date> modifiedTime = column("modified_time", JDBCType.TIMESTAMP);
 
         public Message() {
             super("message");

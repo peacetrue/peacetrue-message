@@ -22,4 +22,6 @@ public class MessageVO<Id, OperatorId> implements Serializable {
     private String remark;
     private OperatorId creatorId;
     private Date createdTime;
+    private OperatorId modifierId;
+    private Date modifiedTime;
 }

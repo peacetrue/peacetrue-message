@@ -40,6 +40,8 @@ public class MessageServiceImpl implements MessageService {
         }
         message.setCreatorId(params.getOperatorId());
         message.setCreatedTime(new Date());
+        message.setModifierId(params.getOperatorId());
+        message.setModifiedTime(message.getCreatedTime());
         logger.debug("保存信息[{}]", message);
         int count = messageMapper.insertSelective(message);
         logger.debug("共影响[{}]条记录", count);
@@ -91,6 +93,8 @@ public class MessageServiceImpl implements MessageService {
         logger.info("修改信息[{}]", params);
         Message<Id, OperatorId> message = new Message<>();
         BeanUtils.copyProperties(params, message);
+        message.setModifierId(params.getOperatorId());
+        message.setModifiedTime(new Date());
         int count = messageMapper.updateByPrimaryKeySelective(message);
         logger.debug("共影响[{}]条记录", count);
         return count;
