@@ -8,6 +8,7 @@ import lombok.ToString;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Optional;
 
 /**
  * @author xiayx
@@ -34,5 +35,13 @@ public class MessageAdd<OperatorId> extends OperatorCapableImpl<OperatorId> {
     private String remark;
     @Max(Integer.MAX_VALUE)
     private Integer receivedCount;
+
+    public void setReceiverIds(String[] receiverId) {
+        this.setReceiverId(String.join(",", receiverId));
+    }
+
+    public String[] getReceiverIds() {
+        return Optional.ofNullable(receiverId).map(string -> string.split(",")).orElse(null);
+    }
 
 }
